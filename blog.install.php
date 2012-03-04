@@ -53,6 +53,14 @@ class blog_install {
 		$mod->update();
 	}
 	
+	public function update_1_5() {
+		$mod = new Modules();
+		$mod->getModuleByName('blog');
+		
+		$mod->versioninstalled = '1.5';
+		$mod->update();
+	}
+	
 	public function uninstall() {
 		$mod = new Modules();
 		$mod->getModuleByName('blog');

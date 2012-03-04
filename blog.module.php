@@ -54,7 +54,7 @@ class blog_module extends FabriqModule {
 				$blog->title = trim($_POST['title']);
 				$blog->body = trim($_POST['body']);
 				$blog->locked = (isset($_POST['locked']) && ($_POST['locked'] == 1)) ? 1 : 0;
-				$blog->user = $_SESSION['FABMOD_USERS_userid'];
+				$blog->user = $_SESSION[Fabriq::title()]['FABMOD_USERS_userid'];
 				
 				if (strlen($blog->title) == '') {
 					Messaging::message('Blog title is required');
@@ -126,7 +126,7 @@ class blog_module extends FabriqModule {
 					$blog->title = trim($_POST['title']);
 					$blog->body = trim($_POST['body']);
 					$blog->locked = (isset($_POST['locked']) && ($_POST['locked'] == 1)) ? 1 : 0;
-					$blog->user = $_SESSION['FABMOD_USERS_userid'];
+					$blog->user = $_SESSION[Fabriq::title()]['FABMOD_USERS_userid'];
 					
 					if (strlen($blog->title) == '') {
 						Messaging::message('Blog title is required');
