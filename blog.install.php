@@ -1,6 +1,15 @@
 <?php
 
-class blog_install {
+class blog_install extends FabriqModuleInstall {
+	public function info() {
+		return array(
+			"module" => "blog",
+			"version" => $this->getLatestUpdate(),
+			"author" => "Will Steinmetz",
+			"description" => "Provides basic blogging functionality"
+		);
+	}
+	
 	public function install() {
 		$mod = new Modules();
 		$mod->getModuleByName('blog');
@@ -68,6 +77,14 @@ class blog_install {
 		$mod->versioninstalled = '1.5.1';
 		$mod->update();
 	}
+	
+	public function update_2_3_2() {
+		$mod = new Modules();
+		$mod->getModuleByName('blog');
+		
+		$mod->versioninstalled = '2.3.2';
+		$mod->update();
+    }
 	
 	public function uninstall() {
 		$mod = new Modules();
